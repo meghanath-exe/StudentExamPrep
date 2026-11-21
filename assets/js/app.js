@@ -350,7 +350,7 @@ const SyllabusModule = (function() {
             </span>
           </div>
         </div>
-        <div style="display:flex; align-items:center; gap:10px;">
+        <div class="subject-header-right">
           <!-- Exam date showcase beside subject -->
           <div class="subject-exam-badge">
             <span>${formatDateDisplay(subject.examDate)}</span>

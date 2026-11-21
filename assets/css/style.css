@@ -819,6 +819,12 @@ body {
   background: var(--bg-subtle);
 }
 
+.subject-header-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
 /* Minimal Toast */
 .toast-notice {
   position: fixed;
@@ -841,4 +847,227 @@ body {
 .toast-notice.show {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* ==========================================================================
+   COMPREHENSIVE MOBILE & SMALL-SCREEN RESPONSIVENESS (< 768px)
+   ========================================================================== */
+@media (max-width: 768px) {
+  html, body {
+    overflow-x: hidden;
+  }
+
+  /* Navigation Bar */
+  .navbar {
+    padding: 10px 14px;
+    height: auto;
+    min-height: 52px;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .nav-stats {
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  .nav-pill {
+    font-size: 11px;
+    padding: 4px 10px;
+    white-space: normal;
+    text-align: left;
+    line-height: 1.35;
+    max-width: 100%;
+  }
+
+  /* Layout Container */
+  .app-container {
+    margin: 14px auto;
+    padding: 0 12px 48px;
+    gap: 16px;
+  }
+
+  /* Cards */
+  .card {
+    padding: 16px 14px;
+    border-radius: var(--radius-md);
+  }
+
+  .card-header {
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: flex-start;
+    margin-bottom: 14px;
+    padding-bottom: 10px;
+  }
+
+  .card-header .btn {
+    align-self: flex-start;
+  }
+
+  /* Focus Timer Display */
+  .clock-display {
+    font-size: clamp(46px, 14vw, 64px);
+    margin-bottom: 14px;
+  }
+
+  .timer-controls {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .timer-controls .btn {
+    flex: 1;
+    min-width: 80px;
+  }
+
+  /* Upcoming Review Queue */
+  .queue-container {
+    max-height: 220px;
+  }
+
+  .queue-row {
+    padding: 8px 10px;
+    gap: 8px;
+  }
+
+  .queue-row-title {
+    white-space: normal;
+    word-break: break-word;
+    font-size: 13px;
+    line-height: 1.35;
+  }
+
+  /* Subject Header */
+  .subject-header-row {
+    padding: 12px 14px;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+
+  .subject-title-area {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .subject-name-text {
+    font-size: 14.5px;
+  }
+
+  .subject-progress-badge {
+    font-size: 11px;
+    padding: 2px 8px;
+  }
+
+  .subject-header-right {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 8px;
+    width: 100%;
+  }
+
+  .subject-exam-badge {
+    font-size: 11px;
+    padding: 3px 8px;
+  }
+
+  .subject-actions {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-left: auto;
+  }
+
+  /* Chapters & Units */
+  .chapters-wrapper {
+    padding: 10px 10px 14px;
+    gap: 10px;
+  }
+
+  .chapter-header {
+    padding: 8px 10px;
+    gap: 8px;
+    align-items: flex-start;
+  }
+
+  .unit-title-group {
+    flex: 1;
+    min-width: 0;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .chapter-title {
+    font-size: 13px;
+    line-height: 1.35;
+    word-break: break-word;
+  }
+
+  .chapter-actions {
+    flex-shrink: 0;
+  }
+
+  /* Topics */
+  .topics-list {
+    padding: 2px 8px;
+  }
+
+  .topic-item {
+    padding: 8px 0;
+    gap: 8px;
+    align-items: flex-start;
+  }
+
+  .topic-left {
+    flex: 1;
+    min-width: 0;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .topic-text {
+    font-size: 13px;
+    white-space: normal;
+    word-break: break-word;
+    line-height: 1.35;
+  }
+
+  .topic-hours {
+    font-size: 10px;
+    padding: 1px 5px;
+  }
+
+  .topic-right {
+    flex-shrink: 0;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .status-tag {
+    font-size: 10.5px;
+    padding: 4px 8px;
+    min-height: 28px;
+  }
+
+  .btn-icon-delete {
+    padding: 4px 6px;
+  }
+
+  /* Modal Sheet on Mobile */
+  .modal-overlay {
+    padding: 12px;
+  }
+
+  .modal-box {
+    max-width: 100%;
+    margin: 0;
+  }
 }
