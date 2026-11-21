@@ -1,4 +1,4 @@
-# 📖 Exam Prep — Minimal & Focused Study Tracker
+# 📖 Student Exam Prep — Minimal & Focused Study Tracker
 
 A clean, distraction-free study and exam tracking tool built with **semantic HTML5, modern CSS, and pure Vanilla JavaScript**.
 
@@ -61,6 +61,5 @@ smart_exam_prep/
 
 ---
 
-## 🚀 How to Run
-
-Simply **double-click `index.html`** in your file explorer to open it in Chrome, Edge, Safari, or Firefox. All data persists automatically in your browser's `localStorage`.
+## 🚀 Live Demo 
+- **Live GitHub Page URL-https://meghanath-exe.github.io/StudentExamPrep/**
