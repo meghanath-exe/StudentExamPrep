@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exam Prep</title>
+
+  <!-- Clean Stylesheet -->
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+  <!-- =========================================================================
+       NAVIGATION BAR
+       ========================================================================= -->
+  <header class="navbar">
+    <a href="#" class="nav-brand">
+      <div class="brand-dot"></div>
+      <span class="brand-title">Exam Prep</span>
+    </a>
+
+    <div class="nav-stats">
+      <!-- Earliest Exam Countdown Reminder -->
+      <div id="earliest-exam-badge" class="nav-pill">
+        Calculating earliest exam...
+      </div>
+    </div>
+  </header>
+
+  <!-- =========================================================================
+       MAIN APPLICATION LAYOUT
+       ========================================================================= -->
+  <main class="app-container">
+
+    <!-- Top Grid: Focus Clock & Upcoming Review Queue -->
+    <div class="top-grid">
+
+      <!-- =====================================================================
+           FEATURE 1: FOCUS CLOCK (SF PRO DISPLAY)
+           ===================================================================== -->
+      <section class="card" aria-label="Focus Timer">
+        <!-- Focus timer heading middle adjusted -->
+        <div class="card-header timer-card-header">
+          <h2 class="card-title">Focus Timer</h2>
+        </div>
+
+        <div class="timer-display-frame">
+          <!-- Segmented Mode Control -->
+          <div class="timer-segmented-control">
+            <button id="btn-segment-study" class="timer-segment-btn active" type="button">Study</button>
+            <button id="btn-segment-break" class="timer-segment-btn" type="button">Short Break</button>
+          </div>
+
+          <!-- SF Pro Display Clock Numbers -->
+          <div id="clock-digits" class="clock-display">25:00</div>
+
+          <!-- Action Controls -->
+          <div class="timer-controls">
+            <button id="btn-timer-toggle" class="btn btn-primary" type="button">Start</button>
+            <button id="btn-timer-reset" class="btn btn-secondary" type="button">Reset</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- =====================================================================
+           FEATURE 2: UPCOMING TOPICS REVIEW QUEUE
+           ===================================================================== -->
+      <section class="card" aria-label="Upcoming Review Topics">
+        <div class="card-header">
+          <h2 class="card-title">Upcoming Topics</h2>
+          <span class="card-caption">In progress and pending review</span>
+        </div>
+
+        <div id="queue-list-container" class="queue-container">
+          <!-- Populated dynamically via QueueModule.render() -->
+        </div>
+      </section>
+
+    </div>
+
+    <!-- =======================================================================
+         FEATURE 3: CURRICULUM (SUBJECTS -> CHAPTERS -> TOPICS)
+         ======================================================================= -->
+    <section class="card" aria-label="Curriculum and Progress">
+      <div class="card-header">
+        <div>
+          <h2 class="card-title">Curriculum</h2>
+          <span class="card-caption">Click a status tag to cycle: To Do → In Progress → Completed</span>
+        </div>
+
+        <div style="display:flex; gap:8px;">
+          <button id="btn-open-subject-modal" class="btn btn-primary btn-sm" type="button">
+            + Add Subject
+          </button>
+          <button id="btn-open-topic-modal" class="btn btn-secondary btn-sm" type="button">
+            + Add Topic
+          </button>
+        </div>
+      </div>
+
+      <!-- Overall Completion Bar -->
+      <div class="progress-summary-bar">
+        <div class="progress-labels">
+          <span id="mastery-count-text">0 of 0 topics completed</span>
+          <span id="mastery-percent-text">0%</span>
+        </div>
+        <div class="progress-track">
+          <div id="mastery-track-fill" class="progress-fill" style="width: 0%;"></div>
+        </div>
+      </div>
+
+      <!-- Subject & Chapter Sections -->
+      <div id="syllabus-container">
+        <!-- Populated dynamically via SyllabusModule.render() -->
+      </div>
+    </section>
+
+  </main>
+
+  <!-- =========================================================================
+       MODAL 1: ADD SUBJECT
+       ========================================================================= -->
+  <div id="modal-add-subject" class="modal-overlay">
+    <div class="modal-box">
+      <div class="modal-header-row">
+        <h3 class="modal-heading">Add Subject</h3>
+        <button id="btn-close-subject-modal" class="modal-close-x" type="button" aria-label="Close modal">✕</button>
+      </div>
+
+      <form id="form-add-subject">
+        <div class="modal-body-fields">
+          <div class="field-group">
+            <label class="field-label" for="input-subject-name">Subject Name</label>
+            <input type="text" id="input-subject-name" class="field-input" placeholder="e.g. Distributed Systems" required />
+          </div>
+
+          <div class="field-group">
+            <label class="field-label" for="input-subject-date">Exam Date</label>
+            <input type="date" id="input-subject-date" class="field-input" required />
+          </div>
+        </div>
+
+        <div class="modal-footer-row">
+          <button id="btn-cancel-subject-modal" class="btn btn-ghost" type="button">Cancel</button>
+          <button type="submit" class="btn btn-primary">Save Subject</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       MODAL 2: ADD CHAPTER / UNIT
+       ========================================================================= -->
+  <div id="modal-add-chapter" class="modal-overlay">
+    <div class="modal-box">
+      <div class="modal-header-row">
+        <h3 class="modal-heading">Add Chapter / Unit</h3>
+        <button id="btn-close-chapter-modal" class="modal-close-x" type="button" aria-label="Close modal">✕</button>
+      </div>
+
+      <form id="form-add-chapter">
+        <div class="modal-body-fields">
+          <div class="field-group">
+            <label class="field-label" for="select-chapter-subject">Subject</label>
+            <select id="select-chapter-subject" class="field-select" required></select>
+          </div>
+
+          <div class="field-group">
+            <label class="field-label" for="input-chapter-title">Chapter / Unit Title</label>
+            <input type="text" id="input-chapter-title" class="field-input" placeholder="e.g. Storage & Indexing" required />
+          </div>
+        </div>
+
+        <div class="modal-footer-row">
+          <button id="btn-cancel-chapter-modal" class="btn btn-ghost" type="button">Cancel</button>
+          <button type="submit" class="btn btn-primary">Save Chapter</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       MODAL 3: ADD TOPIC
+       ========================================================================= -->
+  <div id="modal-add-topic" class="modal-overlay">
+    <div class="modal-box">
+      <div class="modal-header-row">
+        <h3 class="modal-heading">Add Topic</h3>
+        <button id="btn-close-topic-modal" class="modal-close-x" type="button" aria-label="Close modal">✕</button>
+      </div>
+
+      <form id="form-add-topic">
+        <div class="modal-body-fields">
+          <div class="field-group">
+            <label class="field-label" for="select-topic-subject">Subject</label>
+            <select id="select-topic-subject" class="field-select" required></select>
+          </div>
+
+          <div class="field-group">
+            <label class="field-label" for="select-topic-unit">Unit / Chapter</label>
+            <select id="select-topic-unit" class="field-select"></select>
+          </div>
+
+          <div class="field-group">
+            <label class="field-label" for="input-topic-title">Topic Title</label>
+            <input type="text" id="input-topic-title" class="field-input" placeholder="e.g. B+ Tree Concurrency" required />
+          </div>
+
+          <div class="field-group">
+            <label class="field-label" for="input-topic-hours">Estimated Study Time (Hours)</label>
+            <input type="number" id="input-topic-hours" class="field-input" min="0.5" max="12" step="0.5" value="2.0" required />
+          </div>
+        </div>
+
+        <div class="modal-footer-row">
+          <button id="btn-cancel-topic-modal" class="btn btn-ghost" type="button">Cancel</button>
+          <button type="submit" class="btn btn-primary">Save Topic</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Toast Notice -->
+  <div id="toast-notice" class="toast-notice"></div>
+
+  <!-- Vanilla Script -->
+  <script src="assets/js/app.js"></script>
+</body>
+</html>
