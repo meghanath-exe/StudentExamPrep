@@ -13,17 +13,6 @@ Designed with **Apple Design & Emil Kowalski Design Engineering** principles:
 
 ---
 
-## 📅 Active Exam Schedule & Curriculum
-
-| Exam Date | Subject Name | Curriculum Highlights |
-|---|---|---|
-| **04/12/2026** (Dec 4) | **Software Engineering** | SDLC & Agile, Design Patterns & Architecture, Testing & QA |
-| **04/12/2026** (Dec 4) | **Economics and Accounting for Engineers** | Engineering Economics, Cost Analysis, Financial & Cost Accounting |
-| **05/12/2026** (Dec 5) | **Java Programming** | Core OOP & JVM, Collections & Generics, Multithreading & Concurrency |
-| **05/12/2026** (Dec 5) | **Discrete Mathematics** | Logic, Proofs & Sets, Combinatorics & Graph Theory |
-
----
-
 ## 🌟 Core Functions
 
 ### 1. Focus Timer
