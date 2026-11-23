@@ -1,12 +1,3 @@
-/* ==========================================================================
-   SMART EXAM PREP — SF PRO LIGHT INTERFACE
-   Built on Apple Design & Emil Kowalski Design Engineering Foundations:
-   - Typography: Full SF Pro family (SF Pro Display & SF Pro Text)
-   - Increased boldness and high contrast for effortless legibility
-   - Tabular numerals across countdowns, timers, hours & metrics
-   - Responsive active press states (scale 0.97 with custom cubic-bezier)
-   - Zero AI-slop visual tells: quiet chrome, natural contrast, restrained accents
-   ========================================================================== */
 
 :root {
   /* Surface & Base */
